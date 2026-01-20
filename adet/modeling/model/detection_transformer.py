@@ -96,9 +96,8 @@ class DETECTION_TRANSFORMER(nn.Module):
             nn.init.constant_(proj[0].bias, 0)
         self.aux_loss = cfg.MODEL.TRANSFORMER.AUX_LOSS
 
-        ######################################################################
+       
         # offsets, class, semantic and heads
-        ######################################################################
         # bezier center line proposal after the encoder(x_0, y_0, ... , x_3, y_3)
         self.bezier_proposal_coord = MLP(self.d_model, self.d_model, 8, 3)  # predict points offsets
         self.bezier_proposal_class = nn.Linear(self.d_model, self.num_classes)  # text or not text class for topk
@@ -114,9 +113,7 @@ class DETECTION_TRANSFORMER(nn.Module):
         if self.boundary_head_on:
             self.boundary_offset = MLP(self.d_model, self.d_model, 4, 3)  # to rebuild the text boundary from queries
 
-        ######################################################################
         # init
-        ######################################################################
         prior_prob = 0.01
         bias_value = -np.log((1 - prior_prob) / prior_prob)
         self.bezier_proposal_class.bias.data = torch.ones(self.num_classes) * bias_value
@@ -139,9 +136,7 @@ class DETECTION_TRANSFORMER(nn.Module):
             nn.init.constant_(self.boundary_offset.layers[-1].weight.data, 0)
             nn.init.constant_(self.boundary_offset.layers[-1].bias.data, 0)
 
-        ######################################################################
         # shared prediction heads
-        ######################################################################
         num_pred = self.num_decoder_layers
         self.ctrl_point_coord = nn.ModuleList(
             [self.ctrl_point_coord for _ in range(num_pred)]
