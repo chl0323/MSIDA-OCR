@@ -1,11 +1,11 @@
 
-# MSIDA-Multilingual-OCR
+# MSIDA--OCR
 
-A universal end-to-end multi-lingual OCR framework that enhances text detection and recognition in complex real-world scenes. MSIDA integrates Dual-Domain Awareness (DDA) and Multi-party Explicit Information Synergy (MEIS) modules to improve recognition accuracy across diverse scripts, layouts, and orientations.
+A universal end-to-end  OCR framework that enhances text detection and recognition in complex real-world scenes. MSIDA integrates Dual-Domain Awareness (DDA) and Multi-party Explicit Information Synergy (MEIS) modules to improve recognition accuracy across diverse scripts, layouts, and orientations.
 
 ## Motivation
 
-Traditional OCR methods perform well in single-language or scene-specific tasks but struggle with multi-lingual recognition due to:
+Traditional OCR methods perform well in single-language or scene-specific tasks but struggle with  recognition due to:
 
 * Diverse text layouts and structures across languages
 * Poor recognition of low-frequency characters in multi-script settings
